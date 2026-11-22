@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to Grokiversity</title>
+  <meta http-equiv="refresh" content="0; url=https://ankela.github.io/grokiversity/statics/unit-1.html">
+  <link rel="canonical" href="https://ankela.github.io/grokiversity/statics/unit-1.html">
+  <script>
+(function () {
+  var NEW = 'https://ankela.github.io/grokiversity';
+  var path = location.pathname || '/';
+  if (path === '/grokeversity' || path === '/grokeversity/') path = '/';
+  else if (path.indexOf('/grokeversity/') === 0) path = path.slice('/grokeversity'.length);
+  if (path.charAt(0) !== '/') path = '/' + path;
+  var dest = NEW + path + location.search + location.hash;
+  var meta = document.querySelector('meta[http-equiv="refresh"]');
+  if (meta) meta.setAttribute('content', '0; url=' + dest);
+  var link = document.querySelector('link[rel="canonical"]');
+  if (link) link.setAttribute('href', dest);
+  var a = document.getElementById('dest');
+  if (a) { a.href = dest; a.textContent = dest; }
+  location.replace(dest);
+})();
+</script>
+</head>
+<body>
+  <p>This project is now <a id="dest" href="https://ankela.github.io/grokiversity/statics/unit-1.html">Grokiversity</a>.</p>
+</body>
+</html>
